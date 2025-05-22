@@ -15,39 +15,410 @@
     -->
     <script>
       !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="sg2FQX4bnn7Vt2pbfPyDladxGCcI977J";;analytics.SNIPPET_VERSION="5.2.0";
-      analytics.load("sg2FQX4bnn7Vt2pbfPyDladxGCcI977J");
-      analytics.page();
+      analytics.load("sg2FQX4bnn7Vt2pbfPyDladxGCcI977J"); // YOUR SEGMENT WRITE KEY
+      analytics.page(); // Initial page load call
       }}();
     </script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/segmentlogo.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Segment Example</title>
+    <title>Segment Test Pad</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f6;
+        color: #333;
+        line-height: 1.6;
+      }
+      #root {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      h2 {
+        color: #3498db;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+      }
+      .section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #fdfdfd;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+      }
+      .input-group {
+        margin-bottom: 15px;
+      }
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+      .input-group input[type="text"],
+      .input-group input[type="email"],
+      .input-group input[type="number"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        transition: background-color 0.2s ease;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      button.secondary {
+        background-color: #95a5a6;
+      }
+      button.secondary:hover {
+        background-color: #7f8c8d;
+      }
+      button.danger {
+        background-color: #e74c3c;
+      }
+      button.danger:hover {
+        background-color: #c0392b;
+      }
+       button.success {
+        background-color: #2ecc71;
+      }
+      button.success:hover {
+        background-color: #27ae60;
+      }
+      .info {
+        font-size: 0.9em;
+        color: #777;
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #eaf2f8;
+        border-left: 3px solid #3498db;
+        border-radius: 3px;
+      }
+      .code-example {
+          background-color: #2d2d2d;
+          color: #f8f8f2;
+          padding: 10px;
+          border-radius: 4px;
+          font-family: "Courier New", Courier, monospace;
+          font-size: 0.9em;
+          margin-top: 5px;
+          white-space: pre-wrap;
+      }
+      .property-pair {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .property-pair > div {
+        flex: 1;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div id="root">
+      <h1>Segment Test Pad</h1>
+      <p class="info">Use the controls below to send various events to your Segment source. Open your browser's developer console (Network tab and Console tab) to see the requests being made and any Segment debug messages.</p>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <!-- Page Call Section -->
+      <div class="section">
+        <h2>Page Calls</h2>
+        <p class="info">An initial <code>analytics.page()</code> call is made when the page loads (check your console). You can send additional page calls below.</p>
+        <div class="input-group">
+          <label for="pageName">Page Name (optional)</label>
+          <input type="text" id="pageName" placeholder="e.g., Product Details">
+        </div>
+        <div class="input-group">
+          <label for="pageCategory">Page Category (optional property)</label>
+          <input type="text" id="pageCategory" placeholder="e.g., Ecommerce">
+        </div>
+        <button onclick="sendPageCall()">Send Custom Page Call</button>
+        <p class="code-example">analytics.page(name, properties);</p>
+      </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <!-- Identify Section -->
+      <div class="section">
+        <h2>Identify User</h2>
+        <p class="info">Associate the current anonymous user with a <code>userId</code> and add traits.</p>
+        <div class="input-group">
+          <label for="userId">User ID*</label>
+          <input type="text" id="userId" placeholder="e.g., user-123">
+        </div>
+        <div class="input-group">
+          <label for="userEmail">Email</label>
+          <input type="email" id="userEmail" placeholder="e.g., test@example.com">
+        </div>
+        <div class="input-group">
+          <label for="userName">Name</label>
+          <input type="text" id="userName" placeholder="e.g., Jane Doe">
+        </div>
+        <div class="input-group">
+          <label for="userTraitKey1">Custom Trait Key 1</label>
+          <input type="text" id="userTraitKey1" placeholder="e.g., plan">
+        </div>
+        <div class="input-group">
+          <label for="userTraitValue1">Custom Trait Value 1</label>
+          <input type="text" id="userTraitValue1" placeholder="e.g., premium">
+        </div>
+        <button onclick="identifyUser()">Identify User</button>
+        <p class="code-example">analytics.identify(userId, traits);</p>
+      </div>
+
+      <!-- Track Event Section -->
+      <div class="section">
+        <h2>Track Events</h2>
+        <p class="info">Record user actions with <code>analytics.track()</code>.</p>
+        <div class="input-group">
+          <label for="eventName">Event Name*</label>
+          <input type="text" id="eventName" placeholder="e.g., Button Clicked">
+        </div>
+        <p><strong>Custom Properties (Optional):</strong></p>
+        <div class="property-pair">
+            <div>
+                <label for="eventPropKey1">Property 1 Key</label>
+                <input type="text" id="eventPropKey1" placeholder="e.g., buttonColor">
+            </div>
+            <div>
+                <label for="eventPropValue1">Property 1 Value</label>
+                <input type="text" id="eventPropValue1" placeholder="e.g., blue">
+            </div>
+        </div>
+        <div class="property-pair">
+            <div>
+                <label for="eventPropKey2">Property 2 Key</label>
+                <input type="text" id="eventPropKey2" placeholder="e.g., itemID">
+            </div>
+            <div>
+                <label for="eventPropValue2">Property 2 Value</label>
+                <input type="text" id="eventPropValue2" placeholder="e.g., prod-456">
+            </div>
+        </div>
+        <button onclick="trackCustomEvent()">Track Custom Event</button>
+        <button class="secondary" onclick="trackExampleEvent('Product Viewed', { productId: 'SKU-123', price: 99.99, category: 'Apparel' })">Track 'Product Viewed'</button>
+        <button class="secondary" onclick="trackExampleEvent('Video Started', { videoName: 'Segment Intro', duration: 180 })">Track 'Video Started'</button>
+        <p class="code-example">analytics.track(event, properties);</p>
+      </div>
+
+      <!-- Group Section -->
+      <div class="section">
+        <h2>Group</h2>
+        <p class="info">Associate the current user with a group (e.g., a company or organization).</p>
+        <div class="input-group">
+          <label for="groupId">Group ID*</label>
+          <input type="text" id="groupId" placeholder="e.g., company-789">
+        </div>
+        <div class="input-group">
+          <label for="groupName">Group Name</label>
+          <input type="text" id="groupName" placeholder="e.g., Acme Corp">
+        </div>
+        <div class="input-group">
+          <label for="groupPlan">Group Plan</label>
+          <input type="text" id="groupPlan" placeholder="e.g., enterprise">
+        </div>
+        <button onclick="groupUser()">Associate with Group</button>
+        <p class="code-example">analytics.group(groupId, traits);</p>
+      </div>
+
+      <!-- Alias Section -->
+      <div class="section">
+        <h2>Alias</h2>
+        <p class="info">Merge a previously anonymous user with an identified user, or change a user's ID.</p>
+        <div class="input-group">
+          <label for="newId">New User ID*</label>
+          <input type="text" id="newId" placeholder="The ID to alias to">
+        </div>
+        <div class="input-group">
+          <label for="previousId">Previous User ID (optional)</label>
+          <input type="text" id="previousId" placeholder="Defaults to current anonymous/user ID">
+        </div>
+        <button onclick="aliasUser()">Alias User</button>
+        <p class="code-example">analytics.alias(newId, previousId);</p>
+      </div>
+
+      <!-- Other Utilities -->
+      <div class="section">
+        <h2>Other Utilities</h2>
+        <button class="danger" onclick="resetSegment()">Reset (Clear User ID & Traits)</button>
+        <button class="success" onclick="enableDebug()">Enable Debug Mode</button>
+        <button class="secondary" onclick="disableDebug()">Disable Debug Mode</button>
+        <p class="code-example">
+analytics.reset();
+analytics.debug(true);
+analytics.debug(false);
+        </p>
+      </div>
+
+    </div>
+
+    <script>
+      function getInputValue(id) {
+        return document.getElementById(id).value.trim();
+      }
+
+      function sendPageCall() {
+        const pageName = getInputValue('pageName');
+        const pageCategory = getInputValue('pageCategory');
+        const properties = {};
+        if (pageCategory) {
+          properties.category = pageCategory;
+        }
+        // analytics.page() automatically captures path, title, etc.
+        if (pageName) {
+          analytics.page(pageName, properties);
+          console.log('analytics.page called:', pageName, properties);
+        } else {
+          analytics.page(properties);
+          console.log('analytics.page called with properties:', properties);
+        }
+        alert(`Page call sent! Name: ${pageName || '(default)'}, Properties: ${JSON.stringify(properties)}`);
+      }
+
+      function identifyUser() {
+        const userId = getInputValue('userId');
+        const email = getInputValue('userEmail');
+        const name = getInputValue('userName');
+        const traitKey1 = getInputValue('userTraitKey1');
+        const traitValue1 = getInputValue('userTraitValue1');
+
+        if (!userId) {
+          alert('User ID is required for identify calls.');
+          return;
+        }
+
+        const traits = {};
+        if (email) traits.email = email;
+        if (name) traits.name = name;
+        if (traitKey1 && traitValue1) traits[traitKey1] = traitValue1;
+
+        analytics.identify(userId, traits);
+        console.log('analytics.identify called:', userId, traits);
+        alert(`Identify call sent! User ID: ${userId}, Traits: ${JSON.stringify(traits)}`);
+      }
+
+      function trackCustomEvent() {
+        const eventName = getInputValue('eventName');
+        if (!eventName) {
+          alert('Event Name is required for track calls.');
+          return;
+        }
+
+        const properties = {};
+        const propKey1 = getInputValue('eventPropKey1');
+        const propValue1 = getInputValue('eventPropValue1');
+        const propKey2 = getInputValue('eventPropKey2');
+        const propValue2 = getInputValue('eventPropValue2');
+
+        if (propKey1 && propValue1) properties[propKey1] = propValue1;
+        if (propKey2 && propValue2) properties[propKey2] = propValue2;
+
+        analytics.track(eventName, properties);
+        console.log('analytics.track called:', eventName, properties);
+        alert(`Track call sent! Event: ${eventName}, Properties: ${JSON.stringify(properties)}`);
+      }
+
+      function trackExampleEvent(eventName, properties) {
+        analytics.track(eventName, properties);
+        console.log('analytics.track (example) called:', eventName, properties);
+        alert(`Track call sent! Event: ${eventName}, Properties: ${JSON.stringify(properties)}`);
+      }
+
+      function groupUser() {
+        const groupId = getInputValue('groupId');
+        if (!groupId) {
+          alert('Group ID is required for group calls.');
+          return;
+        }
+        const groupName = getInputValue('groupName');
+        const groupPlan = getInputValue('groupPlan');
+
+        const traits = {};
+        if (groupName) traits.name = groupName;
+        if (groupPlan) traits.plan = groupPlan;
+        // Add more traits as needed
+
+        analytics.group(groupId, traits);
+        console.log('analytics.group called:', groupId, traits);
+        alert(`Group call sent! Group ID: ${groupId}, Traits: ${JSON.stringify(traits)}`);
+      }
+
+      function aliasUser() {
+        const newId = getInputValue('newId');
+        const previousId = getInputValue('previousId'); // Can be empty
+
+        if (!newId) {
+          alert('New User ID is required for alias calls.');
+          return;
+        }
+
+        if (previousId) {
+          analytics.alias(newId, previousId);
+          console.log('analytics.alias called:', newId, previousId);
+          alert(`Alias call sent! New ID: ${newId}, Previous ID: ${previousId}`);
+        } else {
+          analytics.alias(newId);
+          console.log('analytics.alias called:', newId, '(previousId was current anonymous/user ID)');
+          alert(`Alias call sent! New ID: ${newId} (previous ID was current anonymous/user ID)`);
+        }
+      }
+
+      function resetSegment() {
+        if (confirm("Are you sure you want to reset Segment? This will clear the stored user ID and traits from local storage.")) {
+            analytics.reset();
+            console.log('analytics.reset() called.');
+            alert('Segment has been reset. Anonymous ID will be regenerated on next event.');
+        }
+      }
+
+      function enableDebug() {
+        analytics.debug(true);
+        console.log('Segment debug mode enabled.');
+        alert('Segment debug mode enabled. Check the console for detailed logs.');
+      }
+
+      function disableDebug() {
+        analytics.debug(false);
+        console.log('Segment debug mode disabled.');
+        alert('Segment debug mode disabled.');
+      }
+
+      // Example of using analytics.ready()
+      analytics.ready(function() {
+        console.log('Segment is ready!');
+        // You could trigger an event here if needed, e.g.
+        // analytics.track('Segment SDK Loaded');
+      });
+
+      // Example of using analytics.on() for a specific event
+      // analytics.on('track', function(event, properties, options) {
+      //   console.log('Intercepted track call via analytics.on():', event, properties, options);
+      // });
+
+    </script>
   </body>
 </html>
